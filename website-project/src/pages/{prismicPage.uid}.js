@@ -27,6 +27,8 @@ export const query = graphql`
   query PageQuery($id: String) {
     prismicPage(id: { eq: $id }) {
       data {
+        title
+        description
         body {
             ... on PrismicPageDataBodyForm {
               id
