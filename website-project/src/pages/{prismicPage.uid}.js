@@ -30,19 +30,28 @@ export const query = graphql`
         title
         description
         body {
-            ... on PrismicPageDataBodyForm {
-              id
-              slice_type
-              primary {
-                form_endpoint
-              }
-              items {
-                input_type
-                is_required
-                placeholder 
+          ... on PrismicPageDataBodyRichText {
+            id
+            slice_type
+            primary {
+              rich_text_content {
+                richText
               }
             }
           }
+          ... on PrismicPageDataBodyForm {
+            id
+            slice_type
+            primary {
+              form_endpoint
+            }
+            items {
+              input_type
+              is_required
+              placeholder
+            }
+          }
+        }
         page_title {
           text
           richText
